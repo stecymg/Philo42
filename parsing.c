@@ -1,5 +1,5 @@
 #include "philo.h"
-
+/*
 static int  string_to_int(char *str)
 {
     int n;
@@ -14,29 +14,28 @@ static int  string_to_int(char *str)
     }
     return (n);
 }
-
-//remplir un tableau avec les arguments
-static void fill_tab(char **args,)
-
+*/
 
 //checker si jai que des digits
-static int  check_digit(char **args)
+int check_digit(int ac, char **av)
 {
-    int i;
+	int		i;
+	char	c;
 
-    while (*args)
-    {
-        i = 0;
-        while ((*args)[i] >= '0' && (*args)[i] <= '9')
-            i++;
-        if ((*args)[i] != 0)
-        {
-            print_error("Error : Not all arguments are digits\n");
-            return (1);
-        }
-        args++;
-    }
-    return (0);
+	while (--ac)
+	{
+		i = -1;
+		while (av[ac][++i])
+		{
+			c = av[ac][i];
+			if (c < '0' || c > '9')
+            {
+                print_error("Error : Not all arguments are digits\n");
+				return (1);
+            }
+		}
+	}
+	return (0);
 }
 
 //parsing : checker le nbre dargs
@@ -44,14 +43,22 @@ static int  check_digit(char **args)
 //mettre string en integer
 int parsing(int argc, char **argv, int infos[5])
 {
+    int ret;
+
     if (argc < 5 || argc > 6)
     {
         print_error("Error : Bad number of arguments\n");
         return (1);
     }
     argv++;
-    if (check_digit(argv))
+    if (check_digit(argc,argv))
         return (1);
-    fill_tab(argv, infos);
+    argc -= 1;
+	while (--argc > 0)
+	{
+		ret = ft_atoi(argv[argc]);
+		if (ret > 2147483647 || ret < 1)
+			return (ERROR);
+	}
     return (0);
 }
