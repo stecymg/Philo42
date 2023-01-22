@@ -1,0 +1,51 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   runtime.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: smontgen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/22 15:19:29 by smontgen          #+#    #+#             */
+/*   Updated: 2023/01/22 15:19:38 by smontgen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "philo.h"
+
+int	init_time(t_data **data)
+{
+	int		i;
+	t_time	*time;
+
+	i = 0;
+	time = (t_time *)malloc(sizeof(t_time));
+	if (!time)
+	{
+		ft_free(*data);
+		write(2, "ERROR : Alloc time\n", 19);
+		return (ERROR);
+	}
+	time->r_start = get_time(2);
+	time->r_ustart = get_time(0);
+	time->runtime = 0;
+	while (i < (*data)->philo_nb)
+	{
+		(*data)[i].time = time;
+		i++;
+	}
+	return (0);
+}
+
+long	new_runtime(t_data *data)
+{
+	pthread_mutex_lock(&data->philo->runtime);
+	data->time->runtime = (get_time(2) - data->time->r_start) * 1000
+		+ ((get_time(0)) - (data->time->r_ustart)) / 1000;
+	return (data->time->runtime);
+}
+
+void	print_time(t_data *data)
+{
+	new_runtime(data);
+	printf("%ld", data->time->runtime);
+}

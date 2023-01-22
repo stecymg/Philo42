@@ -1,30 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: smontgen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/22 15:21:49 by smontgen          #+#    #+#             */
+/*   Updated: 2023/01/22 15:22:27 by smontgen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 /*
-void    putnbr_fd(int number, int fd)
-{
-    char    digit;
+   void    putnbr_fd(int number, int fd)
+   {
+   char    digit;
 
-    if (number >= 10)
-    {
-        putnbr_fd(number / 10, fd);
-        putnbr_fd(number % 10, fd);
-    }
-    else
-    {
-        digit = number + '0';
-        write(fd, &digit, 1);
-    }
-}
-*/
+   if (number >= 10)
+   {
+   putnbr_fd(number / 10, fd);
+   putnbr_fd(number % 10, fd);
+   }
+   else
+   {
+   digit = number + '0';
+   write(fd, &digit, 1);
+   }
+   }
+   */
 
-void    putstr_fd(char *str, int fd)
+void	putstr_fd(char *str, int fd)
 {
-    if (str == 0)
-        return ;
-    while (*str)
-    {
-        write(fd, str++, 1);
-    }
+	if (str == 0)
+		return ;
+	while (*str)
+	{
+		write(fd, str++, 1);
+	}
 }
 
 long long	ft_atoi(const char *str)
@@ -75,7 +87,7 @@ void	destroy_mutex(t_data *data)
 	pthread_mutex_destroy(&data->philo->lock);
 	pthread_mutex_destroy(&data->philo->state);
 	pthread_mutex_destroy(&data->philo->runtime);
-	while (i < data->nb_philo)
+	while (i < data->philo_nb)
 	{
 		pthread_mutex_init(&data->philo->fork[i], NULL);
 		i++;

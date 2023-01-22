@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   life.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: smontgen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/22 11:57:09 by smontgen          #+#    #+#             */
+/*   Updated: 2023/01/22 11:57:11 by smontgen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 void	print_life(t_data *data, char *str)
@@ -18,7 +30,7 @@ void	print_death(t_data *data, char *str, int id)
 	pthread_mutex_unlock(&data->philo->lock);
 }
 
-int	ft_check_status(t_data *data)
+int	check_status(t_data *data)
 {
 	pthread_mutex_lock(&data->philo->state);
 	return (data->state.id[data->id]);
