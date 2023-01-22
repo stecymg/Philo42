@@ -110,7 +110,7 @@ int			init_process(int ac, char **av);
 
 /*parsing.c*/
 int			check_digit(int ac, char **av);
-int			parsing(int argc, char **argv, int infos[5]);
+int			parsing(int argc, char **argv);
 
 /*philo.c*/
 void		philo_sleep(t_data *data);

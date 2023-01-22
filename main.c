@@ -83,7 +83,7 @@ int	init_process(int ac, char **av)
 
 int	main(int ac, char **av)
 {
-	if ((parsing(ac, av == ERROR) || (ac < 5 || ac > 6)))
+	if ((parsing(ac, av) == ERROR) || (ac < 5 || ac > 6))
 	{
 		printf("Error of args\n");
 		printf("[nb_philo][time to die]");

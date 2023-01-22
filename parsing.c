@@ -53,7 +53,7 @@ int	check_digit(int ac, char **av)
 //parsing : checker le nbre dargs
 //si ce sont des nbrs
 //mettre string en integer
-int	parsing(int argc, char **argv, int infos[5])
+int	parsing(int argc, char **argv)
 {
 	int	ret;
 
