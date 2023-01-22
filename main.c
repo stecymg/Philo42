@@ -75,7 +75,7 @@ int	init_process(int ac, char **av)
 		pthread_join(data->philo->thread[i], NULL);
 	pthread_join(data->philo->death, NULL);
 	destroy_mutex(data);
-	ft_free(data);
+	free1(data);
 	return (0);
 }
 

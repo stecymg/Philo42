@@ -58,7 +58,7 @@ int	init_data(t_data **data, int ac, char **av)
 	*data = (t_data *)malloc(sizeof(t_data) * philo_nb);
 	if (!*data)
 	{
-		ft_free(*data);
+		free1(*data);
 		write(2, "ERROR ALLOC\n", 11);
 		return (ERROR);
 	}

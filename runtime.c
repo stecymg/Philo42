@@ -21,7 +21,7 @@ int	init_time(t_data **data)
 	time = (t_time *)malloc(sizeof(t_time));
 	if (!time)
 	{
-		ft_free(*data);
+		free1(*data);
 		write(2, "ERROR : Alloc time\n", 19);
 		return (ERROR);
 	}

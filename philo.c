@@ -56,7 +56,7 @@ void	philo_eat(t_data *data)
 		philo_sleep(data);
 	}
 	else
-		ft_unlock_all(data);
+		unlock_all(data);
 }
 
 void	philo_think(t_data *data)

@@ -94,25 +94,25 @@ void	destroy_mutex(t_data *data)
 	}
 }
 
-int	ft_alloc(t_data	**data, t_state *state, t_thread **philo, int nb_philo)
+int	ft_alloc(t_data	**data, t_state *state, t_thread **philo, int philo_nb)
 {
-	state->id = (int *)malloc(sizeof(int) * nb_philo);
+	state->id = (int *)malloc(sizeof(int) * philo_nb);
 	if (!state->id)
 	{
-		ft_free2(*data, state);
+		free2(*data, state);
 		return (ERROR);
 	}
 	*philo = (t_thread *)malloc(sizeof(t_thread));
 	if (!*philo)
 	{
-		ft_free3(*data, state, *philo);
+		free3(*data, state, *philo);
 		return (ERROR);
 	}
 	(*philo)->fork = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t)
-			* nb_philo);
+			* philo_nb);
 	if (!(*philo)->fork)
 	{
-		ft_free3(*data, state, *philo);
+		free3(*data, state, *philo);
 		return (ERROR);
 	}
 	return (0);
