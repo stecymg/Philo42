@@ -55,7 +55,7 @@ int	check_digit(int ac, char **av)
 //mettre string en integer
 int	parsing(int argc, char **argv)
 {
-	int	ret;
+	long long	ret;
 
 	if (argc < 5 || argc > 6)
 	{
@@ -63,8 +63,8 @@ int	parsing(int argc, char **argv)
 		return (1);
 	}
 	argv++;
-	if (check_digit(argc, argv))
-		return (1);
+	if (check_digit(argc, argv) == ERROR)
+		return (ERROR);
 	argc -= 1;
 	while (--argc > 0)
 	{

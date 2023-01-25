@@ -30,6 +30,8 @@ int	check_end(t_data *data)
 	return (0);
 }
 
+//  si un philo meurt, je change la veleur de data->state.id
+//du coup les autres philo voient et ne doivent plus rien print
 int	one_philo_died(t_data *data, int counter, int i)
 {
 	i = 0;

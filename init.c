@@ -46,7 +46,7 @@ int	init_philo(t_time_to time_to, t_data *data, int philo_nb)
 int	init_data(t_data **data, int ac, char **av)
 {
 	t_time_to	time_to;
-	int			philo_nb;
+	long		philo_nb;
 
 	philo_nb = ft_atoi(av[1]);
 	time_to.sleep = ft_atoi(av[4]);
@@ -59,7 +59,7 @@ int	init_data(t_data **data, int ac, char **av)
 	if (!*data)
 	{
 		free1(*data);
-		write(2, "ERROR ALLOC\n", 11);
+		write(2, "Error Alloc\n", 12);
 		return (ERROR);
 	}
 	if (init_philo(time_to, *data, philo_nb) == 1)

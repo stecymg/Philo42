@@ -37,7 +37,7 @@ void	free2(t_data *data, t_state *state)
 		free(state);
 	}
 	free1(data);
-	write(2, "Faillure allocation\n", 21);
+	write(2, "Faillure allocation\n", 20);
 }
 
 void	free3(t_data *data, t_state *state, t_thread *philo)

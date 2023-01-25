@@ -12,6 +12,8 @@
 
 #include "philo.h"
 
+//boucke qui varendre une fourchette quand ts les philos nont pas assez manger
+//ou ne sont pas mort
 void	*routine(void *arg)
 {
 	t_data	*data;
@@ -26,14 +28,15 @@ void	*routine(void *arg)
 	}
 	if ((data->meal_nb != data->time_to.philo_eat || data->philo->died == DEAD)
 		&& data->philo->end == 0)
-		print_death(data, "mis died", data->id_philo_dead);
+		print_death(data, "is died", data->id_philo_dead);
 	else if (data->philo->died != DEAD)
-		print_action(data, "meat enought");
+		print_life(data, "meat enought");
 	data->philo->end++;
 	pthread_mutex_unlock(&data->philo->state);
 	return (NULL);
 }
 
+//creation des threads avec les paires en 1er puis les impaires un peu apres 
 void	create_thread(t_data *data, int philo_nb)
 {
 	int	i;
@@ -59,6 +62,7 @@ void	create_thread(t_data *data, int philo_nb)
 	}
 }
 
+//initiation de tous les pporcess et je cjheck si jai aucun philo mort
 int	init_process(int ac, char **av)
 {
 	t_data	*data;
@@ -74,7 +78,10 @@ int	init_process(int ac, char **av)
 	create_thread(data, ft_atoi(av[1]));
 	pthread_create(&data->philo->death, NULL, check_death, data);
 	while (i < ft_atoi(av[1]))
+	{
 		pthread_join(data->philo->thread[i], NULL);
+		i++;
+	}
 	pthread_join(data->philo->death, NULL);
 	destroy_mutex(data);
 	free1(data);

@@ -12,7 +12,7 @@
 
 #include "philo.h"
 
-void	print_error(char*msg)
+void	print_error(char *msg)
 {
 	if (msg == 0)
 		return ;

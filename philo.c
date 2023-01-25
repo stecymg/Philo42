@@ -18,7 +18,7 @@ void	philo_sleep(t_data *data)
 	{
 		data->state.id[data->id] = SLEEP;
 		pthread_mutex_unlock(&data->philo->state);
-		print_life(data, "sleeping");
+		print_life(data, "is sleeping");
 		ft_usleep(data, data->time_to.sleep);
 		if (check_status(data) == DEAD || data->philo->died == DEAD)
 		{
@@ -40,7 +40,7 @@ void	philo_eat(t_data *data)
 		data->state.id[data->id] = EAT;
 		pthread_mutex_unlock(&data->philo->state);
 		data->meal_nb++;
-		print_life(data, "eating");
+		print_life(data, "is eating");
 		data->last_eat = new_runtime(data);
 		pthread_mutex_unlock(&data->philo->runtime);
 		ft_usleep(data, data->time_to.eat);
@@ -67,7 +67,7 @@ void	philo_think(t_data *data)
 		if (check_status(data) != DEAD && data->philo->died != DEAD)
 		{
 			data->state.id[data->id] = THINK;
-			print_life(data, "thinking");
+			print_life(data, "is thinking");
 			pthread_mutex_unlock(&data->philo->state);
 		}
 		else
