@@ -30,7 +30,7 @@ void	*routine(void *arg)
 		&& data->philo->end == 0)
 		print_death(data, "is died", data->id_philo_dead);
 	else if (data->philo->died != DEAD)
-		print_life(data, "meat enought");
+		print_life(data, "Max meal nb reached");
 	data->philo->end++;
 	pthread_mutex_unlock(&data->philo->state);
 	return (NULL);
@@ -46,7 +46,8 @@ void	create_thread(t_data *data, int philo_nb)
 	{
 		if (pthread_create(&data->philo->thread[i], NULL,
 				routine, &data[i]) == -1)
-			write(2, "Error : thread not create\n", 26);
+			print_error("Error : thread not create\n");
+			//write(2, "Error : thread not create\n", 26);
 		i++;
 		i++;
 	}
@@ -56,7 +57,8 @@ void	create_thread(t_data *data, int philo_nb)
 	{
 		if (pthread_create(&data->philo->thread[i], NULL,
 				routine, &data[i]) == -1)
-			write(2, "Error : thread not create\n", 26);
+			print_error("Error : thread not create\n");
+			//write(2, "Error : thread not create\n", 26);
 		i++;
 		i++;
 	}

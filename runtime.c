@@ -22,7 +22,8 @@ int	init_time(t_data **data)
 	if (!time)
 	{
 		free1(*data);
-		write(2, "ERROR : Alloc time\n", 19);
+		print_error("Error : Alloc time\n");
+		//write(2, "ERROR : Alloc time\n", 19);
 		return (ERROR);
 	}
 	time->r_start = get_time(2);

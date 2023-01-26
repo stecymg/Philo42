@@ -25,10 +25,7 @@ int	check_digit(int ac, char **av)
 		{
 			c = av[ac][i];
 			if (c < '0' || c > '9')
-			{
-				print_error("Error : Not all arguments are digits\n");
-				return (1);
-			}
+				return (ERROR);
 		}
 	}
 	return (0);
@@ -42,11 +39,7 @@ int	parsing(int argc, char **argv)
 	long long	ret;
 
 	if (argc < 5 || argc > 6)
-	{
-		print_error("Error : Bad number of arguments\n");
-		return (1);
-	}
-	argv++;
+		return (ERROR);
 	if (check_digit(argc, argv) == ERROR)
 		return (ERROR);
 	argc -= 1;
