@@ -99,7 +99,7 @@ void	take_fork_and_eat(t_data *data)
 	if (data->id % 2 == 1 && data->launch != 1)
 	{
 		data->launch = 1;
-		ft_usleep2(data, 2);
+		ft_usleep(data, 2);
 	}
 	if (data->philo_nb == 1)
 	{

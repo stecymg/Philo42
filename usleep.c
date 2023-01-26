@@ -35,6 +35,7 @@ void	ft_usleep(t_data *data, long time_to)
 	pthread_mutex_unlock(&data->philo->runtime);
 }
 
+/*
 void	ft_usleep2(t_data *data, long time_to)
 {
 	long	start_time;
@@ -48,3 +49,4 @@ void	ft_usleep2(t_data *data, long time_to)
 	}
 	pthread_mutex_unlock(&data->philo->runtime);
 }
+*/

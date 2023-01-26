@@ -12,7 +12,7 @@
 
 #include "philo.h"
 
-/*initialisation des données des philo
+/*initialisation des données pour chaque philo
 (i + 1) % philo_nb c'est une formule pour que le dernier philo
 prenne la fourchette du 1er philo
 */
@@ -40,9 +40,11 @@ int	init_philo(t_time_to time_to, t_data *data, int philo_nb)
 		data[i].id_philo_dead = i;
 		i++;
 	}
+	return (0);
 }
 
 //innitialisation de toutes les données
+//philo_eat c'est qd jai largument nbr de repas max 
 int	init_data(t_data **data, int ac, char **av)
 {
 	t_time_to	time_to;

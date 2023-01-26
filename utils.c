@@ -11,23 +11,6 @@
 /* ************************************************************************** */
 
 #include "philo.h"
-/*
-   void    putnbr_fd(int number, int fd)
-   {
-   char    digit;
-
-   if (number >= 10)
-   {
-   putnbr_fd(number / 10, fd);
-   putnbr_fd(number % 10, fd);
-   }
-   else
-   {
-   digit = number + '0';
-   write(fd, &digit, 1);
-   }
-   }
-   */
 
 void	putstr_fd(char *str, int fd)
 {
@@ -73,7 +56,7 @@ long	get_time(int flag)
 
 	gettimeofday(&current, NULL);
 	if (flag == 1)
-		printf("[%d] ", current.tv_usec);
+		printf("[%ld] ", current.tv_usec);
 	if (flag == 2)
 		return (current.tv_sec);
 	return (current.tv_usec);

@@ -11,22 +11,6 @@
 /* ************************************************************************** */
 
 #include "philo.h"
-/*
-   static int  string_to_int(char *str)
-   {
-   int n;
-
-   if (str == 0)
-   return (-1);
-   n = 0;
-   while (*str)
-   {
-   n = (*str - '0') + 10 * n;
-   str++;
-   }
-   return (n);
-   }
-   */
 
 //checker si jai que des digits
 int	check_digit(int ac, char **av)

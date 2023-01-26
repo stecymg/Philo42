@@ -28,9 +28,9 @@ SRCS = philo.c\
 		error_msg.c\
 		parsing.c\
 
-MANDATORY_SRCS = ${MANDATORY}
+MANDATORY_SRCS = ${SRCS}
 
-MANDATORY_OBJS = ${MANDATORY_SRCS:.c=.o}
+MANDATORY_OBJS = ${SRCS:.c=.o}
 
 CFLAGS = -g -Wall -Wextra -Werror -fsanitize=thread
 

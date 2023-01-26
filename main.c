@@ -12,7 +12,7 @@
 
 #include "philo.h"
 
-//boucke qui varendre une fourchette quand ts les philos nont pas assez manger
+//boucle qui varendre une fourchette quand ts les philos nont pas assez manger
 //ou ne sont pas mort
 void	*routine(void *arg)
 {
@@ -62,7 +62,7 @@ void	create_thread(t_data *data, int philo_nb)
 	}
 }
 
-//initiation de tous les pporcess et je cjheck si jai aucun philo mort
+//initiation de tous les process et je check si jai aucun philo mort
 int	init_process(int ac, char **av)
 {
 	t_data	*data;
@@ -93,7 +93,7 @@ int	main(int ac, char **av)
 	if ((parsing(ac, av) == ERROR) || (ac < 5 || ac > 6))
 	{
 		printf("Error of args\n");
-		printf("[nb_philo][time to die]");
+		printf("[exec :[nb_philo][time to die]");
 		printf("[time to eat][time to sleep](meal_nb) \n");
 		return (ERROR);
 	}

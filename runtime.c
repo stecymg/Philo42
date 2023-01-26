@@ -47,5 +47,5 @@ long	new_runtime(t_data *data)
 void	print_time(t_data *data)
 {
 	new_runtime(data);
-	printf("%ld", data->time->runtime);
+	printf("%d", data->time->runtime);
 }

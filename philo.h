@@ -127,7 +127,7 @@ void		print_time(t_data *data);
 
 /*usleep.c*/
 void		ft_usleep(t_data *data, long time_to);
-void		ft_usleep2(t_data *data, long time_to);
+//void		ft_usleep2(t_data *data, long time_to);
 
 /*utils.c*/
 void		putstr_fd(char *str, int fd);
