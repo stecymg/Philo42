@@ -99,7 +99,7 @@ int			init_philo(t_time_to time_to, t_data *data, int philo_nb);
 int			init_data(t_data **data, int ac, char **av);
 void		init_mutex(t_data *data);
 
-/*life.c*/
+/*print_status.c*/
 void		print_life(t_data *data, char *str);
 void		print_death(t_data *data, char *str, int id);
 int			check_status(t_data *data);
