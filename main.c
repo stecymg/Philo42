@@ -28,7 +28,7 @@ void	*routine(void *arg)
 	}
 	if ((data->meal_nb != data->time_to.philo_eat || data->philo->died == DEAD)
 		&& data->philo->end == 0)
-		print_death(data, "is died", data->id_philo_dead);
+		print_death(data, "died", data->id_philo_dead);
 	else if (data->philo->died != DEAD)
 		print_life(data, "Max meal nb reached");
 	data->philo->end++;
@@ -47,7 +47,6 @@ void	create_thread(t_data *data, int philo_nb)
 		if (pthread_create(&data->philo->thread[i], NULL,
 				routine, &data[i]) == -1)
 			print_error("Error : thread not create\n");
-			//write(2, "Error : thread not create\n", 26);
 		i++;
 		i++;
 	}
@@ -58,7 +57,6 @@ void	create_thread(t_data *data, int philo_nb)
 		if (pthread_create(&data->philo->thread[i], NULL,
 				routine, &data[i]) == -1)
 			print_error("Error : thread not create\n");
-			//write(2, "Error : thread not create\n", 26);
 		i++;
 		i++;
 	}

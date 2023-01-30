@@ -38,7 +38,6 @@ void	free2(t_data *data, t_state *state)
 	}
 	free1(data);
 	print_error("Faillure allocation\n");
-	//write(2, "Faillure allocation\n", 20);
 }
 
 void	free3(t_data *data, t_state *state, t_thread *philo)

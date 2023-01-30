@@ -62,7 +62,6 @@ int	init_data(t_data **data, int ac, char **av)
 	{
 		free1(*data);
 		print_error("Error alloc\n");
-		//write(2, "Error Alloc\n", 12);
 		return (ERROR);
 	}
 	if (init_philo(time_to, *data, philo_nb) == 1)
