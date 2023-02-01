@@ -24,7 +24,7 @@ SRCS = philo.c\
 		free_all.c\
 		main.c\
 		death.c\
-		life.c\
+		print_status.c\
 		error_msg.c\
 		parsing.c\
 
