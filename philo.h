@@ -79,25 +79,29 @@ typedef struct s_data
 	t_state		state;
 }	t_data;
 
-/*death.c*/
-int			check_end2(t_data *data);
-int			check_end(t_data *data);
-int			one_philo_died(t_data *data, int counter, int i);
-void		*check_death(void *arg);
+/*utils.c*/
+void		putstr_fd(char *str, int fd);
+long long	ft_atoi(const char *str);
+long		get_time(int flag);
+void		destroy_mutex(t_data *data);
+int			ft_alloc(t_data	**data, t_state *state, t_thread **philo,
+				int nb_philo);
 
-/*error_msg.c*/
-void		print_error(char*msg);
-
-/*free_all.c*/
-void		free1(t_data *data);
-void		free2(t_data *data, t_state *state);
-void		free3(t_data *data, t_state *state, t_thread *philo);
-void		unlock_all(t_data *data);
+/*parsing.c*/
+int			check_digit(int ac, char **av);
+int			parsing(int argc, char **argv);
 
 /*init.c*/
 int			init_philo(t_time_to time_to, t_data *data, int philo_nb);
 int			init_data(t_data **data, int ac, char **av);
 void		init_mutex(t_data *data);
+
+/*philo.c*/
+void		philo_sleep(t_data *data);
+void		philo_eat(t_data *data);
+void		philo_think(t_data *data);
+void		one_philo(t_data *data);
+void		take_fork_and_eat(t_data *data);
 
 /*print_status.c*/
 void		print_life(t_data *data, char *str);
@@ -109,32 +113,28 @@ void		*routine(void *arg);
 void		create_thread(t_data *data, int philo_nb);
 int			init_process(int ac, char **av);
 
-/*parsing.c*/
-int			check_digit(int ac, char **av);
-int			parsing(int argc, char **argv);
-
-/*philo.c*/
-void		philo_sleep(t_data *data);
-void		philo_eat(t_data *data);
-void		philo_think(t_data *data);
-void		one_philo(t_data *data);
-void		take_fork_and_eat(t_data *data);
-
 /*runtime.c*/
 int			init_time(t_data **data);
 long		new_runtime(t_data *data);
 void		print_time(t_data *data);
 
+/*death.c*/
+int			check_end2(t_data *data);
+int			check_end(t_data *data);
+int			one_philo_died(t_data *data, int counter, int i);
+void		*check_death(void *arg);
+
+/*error_msg.c*/
+void		print_error(char*msg);
+
 /*usleep.c*/
 void		ft_usleep(t_data *data, long time_to);
 //void		ft_usleep2(t_data *data, long time_to);
 
-/*utils.c*/
-void		putstr_fd(char *str, int fd);
-long long	ft_atoi(const char *str);
-long		get_time(int flag);
-void		destroy_mutex(t_data *data);
-int			ft_alloc(t_data	**data, t_state *state, t_thread **philo,
-				int nb_philo);
+/*free_all.c*/
+void		free1(t_data *data);
+void		free2(t_data *data, t_state *state);
+void		free3(t_data *data, t_state *state, t_thread *philo);
+void		unlock_all(t_data *data);
 
 #endif
