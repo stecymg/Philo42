@@ -14,13 +14,9 @@
 
 int	check_end2(t_data *data)
 {
-	int end;
-
 	pthread_mutex_lock(&data->philo->state);
-	end = data->philo->end;
-	pthread_mutex_unlock(&data->philo->state);
-	return (end);
-	//return (data->philo->end);
+	//pthread_mutex_unlock(&data->philo->state);
+	return (data->philo->end);
 }
 
 /*check si tous les philos ont fini
