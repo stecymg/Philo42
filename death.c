@@ -15,7 +15,6 @@
 int	check_end2(t_data *data)
 {
 	pthread_mutex_lock(&data->philo->state);
-	//pthread_mutex_unlock(&data->philo->state);
 	return (data->philo->end);
 }
 

@@ -56,7 +56,7 @@ long	get_time(int flag)
 
 	gettimeofday(&current, NULL);
 	if (flag == 1)
-		printf("[%d] ", current.tv_usec);
+		printf("[%ld] ", current.tv_usec);
 	if (flag == 2)
 		return (current.tv_sec);
 	return (current.tv_usec);

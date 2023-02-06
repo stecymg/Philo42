@@ -32,7 +32,7 @@ MANDATORY_SRCS = ${SRCS}
 
 MANDATORY_OBJS = ${SRCS:.c=.o}
 
-CFLAGS = -g -Wall -Wextra -Werror -fsanitize=thread
+CFLAGS = -g -Wall -Wextra -Werror
 
 .c.o:
 		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
