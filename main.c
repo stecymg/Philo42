@@ -93,8 +93,6 @@ int	main(int ac, char **av)
 	if ((parsing(ac, av) == ERROR) || (ac < 5 || ac > 6))
 	{
 		printf("Error of args\n");
-		printf("[exec :[nb_philo][time to die]");
-		printf("[time to eat][time to sleep](meal_nb) \n");
 		return (ERROR);
 	}
 	return (init_process(ac, av));
