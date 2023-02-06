@@ -82,8 +82,6 @@ typedef struct s_data
 /*utils.c*/
 void		putstr_fd(char *str, int fd);
 long long	ft_atoi(const char *str);
-long		get_time(int flag);
-void		destroy_mutex(t_data *data);
 int			ft_alloc(t_data	**data, t_state *state, t_thread **philo,
 				int nb_philo);
 
@@ -115,6 +113,7 @@ int			init_process(int ac, char **av);
 
 /*runtime.c*/
 int			init_time(t_data **data);
+long		get_time(int flag);
 long		new_runtime(t_data *data);
 void		print_time(t_data *data);
 
@@ -129,12 +128,12 @@ void		print_error(char*msg);
 
 /*usleep.c*/
 void		ft_usleep(t_data *data, long time_to);
-//void		ft_usleep2(t_data *data, long time_to);
 
 /*free_all.c*/
 void		free1(t_data *data);
 void		free2(t_data *data, t_state *state);
 void		free3(t_data *data, t_state *state, t_thread *philo);
 void		unlock_all(t_data *data);
+void		destroy_mutex(t_data *data);
 
 #endif

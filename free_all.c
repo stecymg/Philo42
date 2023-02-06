@@ -53,3 +53,18 @@ void	unlock_all(t_data *data)
 	pthread_mutex_unlock(&data->philo->fork[data->id]);
 	pthread_mutex_unlock(&data->philo->fork[data->left]);
 }
+
+void	destroy_mutex(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	pthread_mutex_destroy(&data->philo->lock);
+	pthread_mutex_destroy(&data->philo->state);
+	pthread_mutex_destroy(&data->philo->runtime);
+	while (i < data->philo_nb)
+	{
+		pthread_mutex_init(&data->philo->fork[i], NULL);
+		i++;
+	}
+}

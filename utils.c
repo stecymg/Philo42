@@ -50,33 +50,6 @@ long long	ft_atoi(const char *str)
 	return (nbr);
 }
 
-long	get_time(int flag)
-{
-	struct timeval	current;
-
-	gettimeofday(&current, NULL);
-	if (flag == 1)
-		printf("[%ld] ", current.tv_usec);
-	if (flag == 2)
-		return (current.tv_sec);
-	return (current.tv_usec);
-}
-
-void	destroy_mutex(t_data *data)
-{
-	int	i;
-
-	i = 0;
-	pthread_mutex_destroy(&data->philo->lock);
-	pthread_mutex_destroy(&data->philo->state);
-	pthread_mutex_destroy(&data->philo->runtime);
-	while (i < data->philo_nb)
-	{
-		pthread_mutex_init(&data->philo->fork[i], NULL);
-		i++;
-	}
-}
-
 int	ft_alloc(t_data	**data, t_state *state, t_thread **philo, int philo_nb)
 {
 	state->id = (int *)malloc(sizeof(int) * philo_nb);

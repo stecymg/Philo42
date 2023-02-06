@@ -36,6 +36,18 @@ int	init_time(t_data **data)
 	return (0);
 }
 
+long	get_time(int flag)
+{
+	struct timeval	current;
+
+	gettimeofday(&current, NULL);
+	if (flag == 1)
+		printf("[%ld] ", current.tv_usec);
+	if (flag == 2)
+		return (current.tv_sec);
+	return (current.tv_usec);
+}
+
 long	new_runtime(t_data *data)
 {
 	pthread_mutex_lock(&data->philo->runtime);
