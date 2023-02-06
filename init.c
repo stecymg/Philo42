@@ -12,13 +12,6 @@
 
 #include "philo.h"
 
-/*initialisation des données pour chaque philo
-init_philo initialise des données pour chaque philosophe, telles que 
-l'identifiant, le nombre de repas, le nombre de philosophes, la fourchette de 
-gauche et de droite, la dernière fois qu'il a mangé, etc.
-(i + 1) % philo_nb c'est une formule pour que le dernier philo
-prenne la fourchette du 1er philo
-*/
 int	init_philo(t_time_to time_to, t_data *data, int philo_nb)
 {
 	t_state		state;
@@ -46,11 +39,6 @@ int	init_philo(t_time_to time_to, t_data *data, int philo_nb)
 	return (0);
 }
 
-/*innitialisation de toutes les données
-init_data alloue de l'espace mémoire pour les données de chaque philosophe 
-et appelle la fonction init_philo pour initialiser ces données.
-philo_eat c'est qd jai largument nbr de repas max 
-*/
 int	init_data(t_data **data, int ac, char **av)
 {
 	t_time_to	time_to;
@@ -75,10 +63,6 @@ int	init_data(t_data **data, int ac, char **av)
 	return (0);
 }
 
-/*init_mutex initialise les mutex pour gérer la synchronisation des
-actions des philosophes. Les mutex sont utilisés pour contrôler l'accès
-aux fourchettes et pour synchroniser les états et la durée de vie 
-des philosophes.*/
 void	init_mutex(t_data *data)
 {
 	int	i;

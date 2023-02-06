@@ -12,8 +12,6 @@
 
 #include "philo.h"
 
-//boucle qui varendre une fourchette quand ts les philos nont pas assez manger
-//ou ne sont pas mort
 void	*routine(void *arg)
 {
 	t_data	*data;
@@ -36,7 +34,6 @@ void	*routine(void *arg)
 	return (NULL);
 }
 
-//creation des threads avec les paires en 1er puis les impaires un peu apres 
 void	create_thread(t_data *data, int philo_nb)
 {
 	int	i;
@@ -62,7 +59,6 @@ void	create_thread(t_data *data, int philo_nb)
 	}
 }
 
-//initiation de tous les process et je check si jai aucun philo mort
 int	init_process(int ac, char **av)
 {
 	t_data	*data;

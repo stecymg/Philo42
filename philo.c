@@ -92,8 +92,6 @@ void	one_philo(t_data *data)
 	return ;
 }
 
-// jappelle un mutex pour le philo qui naura pas dormi et 
-//jappelle philo_eat quand je mange
 void	take_fork_and_eat(t_data *data)
 {
 	if (data->id % 2 == 1 && data->launch != 1)

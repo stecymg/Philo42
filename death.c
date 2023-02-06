@@ -18,11 +18,6 @@ int	check_end2(t_data *data)
 	return (data->philo->end);
 }
 
-/*check si tous les philos ont fini
-jappelle check_end2 qui verouille ma structure state
-puis je retourne la valeur de end
-si ccette valeur est = au nb de phi e deverouille et renvoie 1
-sinn deverouille et renvoie 0*/
 int	check_end(t_data *data)
 {
 	if (check_end2(data) == data->philo_nb)
@@ -35,9 +30,6 @@ int	check_end(t_data *data)
 	return (0);
 }
 
-// Boucle qui tourne en parallele constament pour checker si un philo meurt 
-// si un philo meurt, je change la veleur de data->state.id
-//du coup les autres philo voient et ne doivent plus rien print
 int	one_philo_died(t_data *data, int counter, int i)
 {
 	i = 0;

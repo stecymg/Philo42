@@ -12,7 +12,6 @@
 
 #include "philo.h"
 
-//checker si jai que des digits
 int	check_digit(int ac, char **av)
 {
 	int		i;
@@ -31,9 +30,6 @@ int	check_digit(int ac, char **av)
 	return (0);
 }
 
-//parsing : checker le nbre dargs
-//si ce sont des nbrs
-//converti en int
 int	parsing(int argc, char **argv)
 {
 	long long	ret;
